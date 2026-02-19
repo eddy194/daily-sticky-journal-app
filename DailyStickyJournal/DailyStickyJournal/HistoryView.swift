@@ -45,7 +45,7 @@ struct HistoryView: View {
             }
         } detail: {
             if let dateKey = viewModel.selection {
-                NoteEditorContainer(noteStore: viewModel.noteStore, dateKey: dateKey)
+                ChecklistNoteEditorContainer(noteStore: viewModel.noteStore, dateKey: dateKey)
                     .id(dateKey)
             } else {
                 ContentUnavailableView("No note selected", systemImage: "note")
@@ -122,19 +122,26 @@ struct HistoryView: View {
     }
 }
 
-private struct NoteEditorContainer: View {
+private struct ChecklistNoteEditorContainer: View {
     let noteStore: NoteStore
     let dateKey: String
 
-    @StateObject private var viewModel: NoteEditorViewModel
+    @StateObject private var viewModel: ChecklistNoteViewModel
 
     init(noteStore: NoteStore, dateKey: String) {
         self.noteStore = noteStore
         self.dateKey = dateKey
-        _viewModel = StateObject(wrappedValue: NoteEditorViewModel(noteStore: noteStore, dateKey: dateKey))
+        _viewModel = StateObject(wrappedValue: ChecklistNoteViewModel(noteStore: noteStore, initialDateKey: dateKey))
     }
 
     var body: some View {
-        NoteEditorView(viewModel: viewModel)
+        VStack(alignment: .leading, spacing: 12) {
+            Text(viewModel.titleText)
+                .font(.title3.weight(.semibold))
+                .textSelection(.enabled)
+
+            ChecklistNoteView(viewModel: viewModel)
+        }
+        .padding(16)
     }
 }

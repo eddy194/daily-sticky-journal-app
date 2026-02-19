@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StickyPanelView: View {
-    @ObservedObject var viewModel: DailyNoteEditorViewModel
+    @ObservedObject var viewModel: ChecklistNoteViewModel
 
     var body: some View {
         ZStack {
@@ -20,10 +20,8 @@ struct StickyPanelView: View {
                 header
                 Divider().opacity(0.25)
 
-                HighlightingTextView(text: $viewModel.content) {
-                    viewModel.scheduleAutosave()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                ChecklistNoteView(viewModel: viewModel)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .padding(22)
             .padding(.top, 8)

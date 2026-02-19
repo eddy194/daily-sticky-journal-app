@@ -7,7 +7,7 @@ final class AppModel: ObservableObject {
     let persistence: PersistenceController
     let noteStore: NoteStore
 
-    let todayViewModel: DailyNoteEditorViewModel
+    let todayViewModel: ChecklistNoteViewModel
     let panelController: PanelController
     let rolloverScheduler: RolloverScheduler
 
@@ -22,11 +22,10 @@ final class AppModel: ObservableObject {
         let noteStore = NoteStore(persistence: persistence, settings: settings)
         self.noteStore = noteStore
 
-        self.todayViewModel = DailyNoteEditorViewModel(noteStore: noteStore, initialDateKey: DateKey.today())
+        self.todayViewModel = ChecklistNoteViewModel(noteStore: noteStore, initialDateKey: DateKey.today())
         self.panelController = PanelController(settings: settings, viewModel: todayViewModel)
         self.rolloverScheduler = RolloverScheduler(noteStore: noteStore)
 
         rolloverScheduler.start()
     }
 }
-

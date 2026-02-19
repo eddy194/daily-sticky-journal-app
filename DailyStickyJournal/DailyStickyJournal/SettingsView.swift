@@ -10,9 +10,8 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section("Template") {
-                TextEditor(text: $settings.templateText)
-                    .font(.system(.body, design: .monospaced))
-                    .frame(minHeight: 160)
+                HighlightingTextView(text: $settings.templateText, font: .monospacedSystemFont(ofSize: 14, weight: .regular))
+                    .frame(minHeight: 220)
                 Text("Tokens: {{date}}, {{iso_date}}, {{weekday}}")
                     .font(.footnote)
                     .foregroundStyle(.secondary)

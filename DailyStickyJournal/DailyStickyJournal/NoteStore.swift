@@ -64,15 +64,36 @@ final class NoteStore {
 
     private func normalizeContentIfNeeded(_ note: Note) throws {
         let current = note.content
-        guard current.contains("\\n"), !current.contains("\n") else { return }
+        var out = current
+        var changed = false
 
-        let normalized = current
-            .replacingOccurrences(of: "\\r\\n", with: "\n")
-            .replacingOccurrences(of: "\\n", with: "\n")
-            .replacingOccurrences(of: "\\t", with: "\t")
+        if out.contains("\\n"), !out.contains("\n") {
+            out = out
+                .replacingOccurrences(of: "\\r\\n", with: "\n")
+                .replacingOccurrences(of: "\\n", with: "\n")
+                .replacingOccurrences(of: "\\t", with: "\t")
+            changed = true
+        }
 
-        guard normalized != current else { return }
-        note.content = normalized
+        // Migrate checkbox syntax from "- [ ]" to "☐" and "- [x]" to "☑".
+        let migrated = out
+            .replacingOccurrences(of: "\n- [ ]", with: "\n☐")
+            .replacingOccurrences(of: "\n- [x]", with: "\n☑")
+            .replacingOccurrences(of: "\n- [X]", with: "\n☑")
+        if migrated != out {
+            out = migrated
+            changed = true
+        }
+        if out.hasPrefix("- [ ]") {
+            out = "☐" + out.dropFirst(5)
+            changed = true
+        } else if out.hasPrefix("- [x]") || out.hasPrefix("- [X]") {
+            out = "☑" + out.dropFirst(5)
+            changed = true
+        }
+
+        guard changed, out != current else { return }
+        note.content = String(out)
         note.updatedAt = Date()
         try viewContext.save()
     }

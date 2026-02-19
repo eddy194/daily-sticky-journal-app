@@ -39,20 +39,20 @@ final class SettingsStore: ObservableObject {
 
         let defaultTemplate = """
         LSEG:
-        •
-        •
+        ☐ 
+        ☐ 
 
         KA:
-        •
-        •
+        ☐ 
+        ☐ 
 
         METRO:
-        •
-        •
+        ☐ 
+        ☐ 
 
         SMARTX:
-        •
-        •
+        ☐ 
+        ☐ 
         """
 
         let loaded = defaults.string(forKey: Keys.templateText) ?? defaultTemplate
@@ -66,13 +66,23 @@ final class SettingsStore: ObservableObject {
     private static func normalizeTemplate(_ template: String) -> String {
         // Migrate users who entered literal "\n" sequences instead of real newlines.
         // Only convert if the template doesn't already contain real line breaks.
-        if template.contains("\\n"), !template.contains("\n") {
-            return template
+        var out = template
+        if out.contains("\\n"), !out.contains("\n") {
+            out = out
                 .replacingOccurrences(of: "\\r\\n", with: "\n")
                 .replacingOccurrences(of: "\\n", with: "\n")
                 .replacingOccurrences(of: "\\t", with: "\t")
         }
-        return template
+
+        // Migrate checkbox syntax from "- [ ]" to "☐" and "- [x]" to "☑".
+        out = out
+            .replacingOccurrences(of: "\n- [ ]", with: "\n☐")
+            .replacingOccurrences(of: "\n- [x]", with: "\n☑")
+            .replacingOccurrences(of: "\n- [X]", with: "\n☑")
+        if out.hasPrefix("- [ ]") { out = "☐" + out.dropFirst(5) }
+        if out.hasPrefix("- [x]") || out.hasPrefix("- [X]") { out = "☑" + out.dropFirst(5) }
+
+        return out
     }
 
     func loadWindowFrame() -> CGRect? {

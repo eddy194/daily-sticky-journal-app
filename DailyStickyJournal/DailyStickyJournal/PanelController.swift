@@ -7,11 +7,11 @@ final class PanelController: NSObject, ObservableObject, NSWindowDelegate {
     @Published private(set) var isVisible: Bool = false
 
     private let settings: SettingsStore
-    private let viewModel: DailyNoteEditorViewModel
+    private let viewModel: ChecklistNoteViewModel
     private var panel: NSPanel?
     private var cancellables: Set<AnyCancellable> = []
 
-    init(settings: SettingsStore, viewModel: DailyNoteEditorViewModel) {
+    init(settings: SettingsStore, viewModel: ChecklistNoteViewModel) {
         self.settings = settings
         self.viewModel = viewModel
         super.init()

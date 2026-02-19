@@ -19,6 +19,9 @@
 		D7D211893D0C4A34AAF64B6B /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EFC7E810345F2A8AAE39D /* NoteStore.swift */; };
 		C25701E9DB5F42FC91085DA2 /* RolloverScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59807F88BE694459AD9744E4 /* RolloverScheduler.swift */; };
 		58EFB5499E3D43468B3B86DB /* DailyNoteEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61F123822A482FA7A06777 /* DailyNoteEditorViewModel.swift */; };
+		B1C2D3E4F5A6B7C8D9E0F1A2 /* ChecklistDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E1F2 /* ChecklistDocument.swift */; };
+		B3C4D5E6F7A8B9C0D1E2F3A4 /* ChecklistNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4C5D6E7F8A9B0C1D2E3F4 /* ChecklistNoteView.swift */; };
+		B5C6D7E8F9A0B1C2D3E4F5A6 /* ChecklistNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6C7D8E9F0A1B2C3D4E5F6 /* ChecklistNoteViewModel.swift */; };
 		0BD0C4C91F4C4EC89D0AC8E0 /* StickyPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04305FD850734C3C8F2BBFD2 /* StickyPanelView.swift */; };
 		9C25D746B5274B0AA0119CD7 /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16CFF911F247AD93208C99 /* PanelController.swift */; };
 		29483B5ED3B6435E88AFC311 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998D17AE7454704B72B1AFA /* HistoryViewModel.swift */; };
@@ -48,6 +51,9 @@
 		4F5EFC7E810345F2A8AAE39D /* NoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
 		59807F88BE694459AD9744E4 /* RolloverScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolloverScheduler.swift; sourceTree = "<group>"; };
 		4A61F123822A482FA7A06777 /* DailyNoteEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteEditorViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* ChecklistDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistDocument.swift; sourceTree = "<group>"; };
+		A3B4C5D6E7F8A9B0C1D2E3F4 /* ChecklistNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistNoteView.swift; sourceTree = "<group>"; };
+		A5B6C7D8E9F0A1B2C3D4E5F6 /* ChecklistNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistNoteViewModel.swift; sourceTree = "<group>"; };
 		04305FD850734C3C8F2BBFD2 /* StickyPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyPanelView.swift; sourceTree = "<group>"; };
 		2A16CFF911F247AD93208C99 /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
 		F998D17AE7454704B72B1AFA /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 				4F5EFC7E810345F2A8AAE39D /* NoteStore.swift */,
 				59807F88BE694459AD9744E4 /* RolloverScheduler.swift */,
 				4A61F123822A482FA7A06777 /* DailyNoteEditorViewModel.swift */,
+				A1B2C3D4E5F6A7B8C9D0E1F2 /* ChecklistDocument.swift */,
+				A5B6C7D8E9F0A1B2C3D4E5F6 /* ChecklistNoteViewModel.swift */,
+				A3B4C5D6E7F8A9B0C1D2E3F4 /* ChecklistNoteView.swift */,
 				42353F93B7D14A70B7D52E37 /* HighlightingTextView.swift */,
 				FF22C911B7A74453B8FF0B33 /* VisualEffectView.swift */,
 				04305FD850734C3C8F2BBFD2 /* StickyPanelView.swift */,
@@ -207,6 +216,9 @@
 				D7D211893D0C4A34AAF64B6B /* NoteStore.swift in Sources */,
 				C25701E9DB5F42FC91085DA2 /* RolloverScheduler.swift in Sources */,
 				58EFB5499E3D43468B3B86DB /* DailyNoteEditorViewModel.swift in Sources */,
+				B1C2D3E4F5A6B7C8D9E0F1A2 /* ChecklistDocument.swift in Sources */,
+				B5C6D7E8F9A0B1C2D3E4F5A6 /* ChecklistNoteViewModel.swift in Sources */,
+				B3C4D5E6F7A8B9C0D1E2F3A4 /* ChecklistNoteView.swift in Sources */,
 				0BD0C4C91F4C4EC89D0AC8E0 /* StickyPanelView.swift in Sources */,
 				0B6130AAFCCF4AF284440F9A /* HighlightingTextView.swift in Sources */,
 				10E8D18A8A41424EA6FDD9D1 /* VisualEffectView.swift in Sources */,

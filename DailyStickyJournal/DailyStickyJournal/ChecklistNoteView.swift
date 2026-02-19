@@ -39,16 +39,19 @@ struct ChecklistNoteView: View {
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundStyle(.secondary)
 
+                    let isNotesEmpty = viewModel.document.notes.isEmpty
                     ZStack(alignment: .topLeading) {
-                        if viewModel.document.notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                            Text("Write anything…")
-                                .foregroundStyle(.secondary.opacity(0.7))
-                                .padding(.horizontal, 4)
-                                .padding(.vertical, 8)
-                                .allowsHitTesting(false)
-                        }
                         TextEditor(text: $viewModel.document.notes)
                             .scrollContentBackground(.hidden)
+                            .font(.system(size: 14))
+
+                        Text("Write anything…")
+                            .foregroundStyle(.secondary.opacity(0.7))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 10)
+                            .opacity(isNotesEmpty ? 1 : 0)
+                            .animation(.easeOut(duration: 0.12), value: isNotesEmpty)
+                            .allowsHitTesting(false)
                     }
                     .frame(minHeight: 140)
                     .padding(8)
@@ -97,15 +100,16 @@ private struct ChecklistTaskRow: View {
     @State private var isHovering: Bool = false
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 10) {
+        HStack(alignment: .center, spacing: 10) {
             Toggle("", isOn: $isDone)
                 .toggleStyle(.checkbox)
                 .labelsHidden()
-                .controlSize(.large)
+                .controlSize(.regular)
 
             ZStack(alignment: .leading) {
                 TextField("New task", text: $text)
                     .textFieldStyle(.plain)
+                    .font(.system(size: 14))
                     .foregroundStyle(isDone ? .secondary : .primary)
 
                 if isDone {
@@ -113,24 +117,24 @@ private struct ChecklistTaskRow: View {
                         Rectangle()
                             .fill(Color.secondary.opacity(0.85))
                             .frame(height: 1)
-                            .offset(y: geo.size.height / 2)
+                            .offset(y: geo.size.height * 0.60)
                     }
                     .allowsHitTesting(false)
                 }
             }
             .frame(maxWidth: .infinity)
 
-            if isHovering {
-                Button(role: .destructive) {
-                    onDelete()
-                } label: {
-                    Image(systemName: "minus.circle.fill")
-                }
-                .buttonStyle(.borderless)
-                .foregroundStyle(.secondary)
-                .help("Delete task")
-                .transition(.opacity)
+            Button(role: .destructive) {
+                onDelete()
+            } label: {
+                Image(systemName: "minus.circle.fill")
             }
+            .buttonStyle(.borderless)
+            .foregroundStyle(.secondary)
+            .help("Delete task")
+            .opacity(isHovering ? 1 : 0)
+            .animation(.easeOut(duration: 0.12), value: isHovering)
+            .allowsHitTesting(isHovering)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 8)

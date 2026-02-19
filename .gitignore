@@ -1,0 +1,22 @@
+.DS_Store
+.build
+.swiftpm
+
+# Xcode
+DerivedData/
+DerivedDataCodex/
+*.xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.xcworkspace
+*.xcresult
+*.xcarchive
+
+# Build outputs
+dist/
+DailyStickyJournal/dist/
+DailyStickyJournal/DerivedDataCodex/
+
+# SwiftPM (when opened in Xcode)
+Package.resolved

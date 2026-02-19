@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2539B828DFAD4B019F69B202 /* DailyStickyJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC69074827145F99DADA132 /* DailyStickyJournalApp.swift */; };
+		E287BF906BFC4FE99526227E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213420F3768B424F9B0FB64D /* AppModel.swift */; };
+		9F676FC717F54DF7A6920DB2 /* AppWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BFCCC3C2642B8A4111897 /* AppWindows.swift */; };
+		49EFC23920014A13846C65C4 /* DateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922643A49CB48B787DA8761 /* DateKey.swift */; };
+		57652D2EB35E4B1E922B7371 /* TemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A879693425A41EDA84E6DAC /* TemplateRenderer.swift */; };
+		8D2E45E9F4F44C26AF38C1F6 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F0744DC694B1A8D39B7C9 /* Notifications.swift */; };
+		F4B9559617DC4934AF21F6FE /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B735B770047FF95B86B7D /* SettingsStore.swift */; };
+		6967940866574B3EB6A79235 /* LaunchAtLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0222504CC31644BEABC2E5A8 /* LaunchAtLoginService.swift */; };
+		11C528AB306449D1B260BB74 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4516A73129845D0AAC77C4F /* PersistenceController.swift */; };
+		D7D211893D0C4A34AAF64B6B /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EFC7E810345F2A8AAE39D /* NoteStore.swift */; };
+		C25701E9DB5F42FC91085DA2 /* RolloverScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59807F88BE694459AD9744E4 /* RolloverScheduler.swift */; };
+		58EFB5499E3D43468B3B86DB /* DailyNoteEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61F123822A482FA7A06777 /* DailyNoteEditorViewModel.swift */; };
+		0BD0C4C91F4C4EC89D0AC8E0 /* StickyPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04305FD850734C3C8F2BBFD2 /* StickyPanelView.swift */; };
+		9C25D746B5274B0AA0119CD7 /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16CFF911F247AD93208C99 /* PanelController.swift */; };
+		29483B5ED3B6435E88AFC311 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998D17AE7454704B72B1AFA /* HistoryViewModel.swift */; };
+		F270A5BE13CB4D91BC4CCBB1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AA1FE1781246E8BFFFCED8 /* HistoryView.swift */; };
+		DB10CD352A74455BB4E9939F /* NoteEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE2475BBAC423EB4CD67F9 /* NoteEditorViewModel.swift */; };
+		DF35DDFF87CC4751B49BD124 /* NoteEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D3FB7F35F14492A6ABD9AE /* NoteEditorView.swift */; };
+		C329F2993D1444F7853A12C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF69FDD4D65D4F91A40A9334 /* SettingsView.swift */; };
+		C207FA4379FE4F48BFCB8F0C /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C3C40DBF4ADCAA3569E1 /* Note+CoreDataClass.swift */; };
+		40E28DFCF07E4501B18D7A29 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F265BDB0B47ABAB69C58A /* Note+CoreDataProperties.swift */; };
+		B8C7620E4A27477ABFE10C4B /* JournalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C286BC42092434DAF1E7A59 /* JournalModel.xcdatamodeld */; };
+		78A76C73C2484E6DA2780006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4458B6405F2F4EF5A8666846 /* Assets.xcassets */; };
+		10E8D18A8A41424EA6FDD9D1 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF22C911B7A74453B8FF0B33 /* VisualEffectView.swift */; };
+		0B6130AAFCCF4AF284440F9A /* HighlightingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42353F93B7D14A70B7D52E37 /* HighlightingTextView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		83CA801C0E4F4762BAE4E354 /* DailyStickyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyStickyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC69074827145F99DADA132 /* DailyStickyJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStickyJournalApp.swift; sourceTree = "<group>"; };
+		213420F3768B424F9B0FB64D /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		3A3BFCCC3C2642B8A4111897 /* AppWindows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindows.swift; sourceTree = "<group>"; };
+		A922643A49CB48B787DA8761 /* DateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateKey.swift; sourceTree = "<group>"; };
+		8A879693425A41EDA84E6DAC /* TemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderer.swift; sourceTree = "<group>"; };
+		5D8F0744DC694B1A8D39B7C9 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		908B735B770047FF95B86B7D /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		0222504CC31644BEABC2E5A8 /* LaunchAtLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginService.swift; sourceTree = "<group>"; };
+		B4516A73129845D0AAC77C4F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		4F5EFC7E810345F2A8AAE39D /* NoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
+		59807F88BE694459AD9744E4 /* RolloverScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolloverScheduler.swift; sourceTree = "<group>"; };
+		4A61F123822A482FA7A06777 /* DailyNoteEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteEditorViewModel.swift; sourceTree = "<group>"; };
+		04305FD850734C3C8F2BBFD2 /* StickyPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyPanelView.swift; sourceTree = "<group>"; };
+		2A16CFF911F247AD93208C99 /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
+		F998D17AE7454704B72B1AFA /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		D6AA1FE1781246E8BFFFCED8 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		6BAE2475BBAC423EB4CD67F9 /* NoteEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorViewModel.swift; sourceTree = "<group>"; };
+		97D3FB7F35F14492A6ABD9AE /* NoteEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorView.swift; sourceTree = "<group>"; };
+		EF69FDD4D65D4F91A40A9334 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		04E8C3C40DBF4ADCAA3569E1 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B17F265BDB0B47ABAB69C58A /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4458B6405F2F4EF5A8666846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C286BC42092434DAF1E7A59 /* JournalModel.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodeld; path = JournalModel.xcdatamodeld; sourceTree = "<group>"; };
+		38B9742067C049898AB76AE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF22C911B7A74453B8FF0B33 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		42353F93B7D14A70B7D52E37 /* HighlightingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightingTextView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3C7B16F9157402681EF836A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FBC444255450480E8CD3D999 = {
+			isa = PBXGroup;
+			children = (
+				9963A1AF9B864279AB47BB16 /* DailyStickyJournal */,
+				8B060E44EBC2453389CDB77F /* Products */,
+				40226B83F7564B05A4DB1E98 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9963A1AF9B864279AB47BB16 /* DailyStickyJournal */ = {
+			isa = PBXGroup;
+			children = (
+				8CC69074827145F99DADA132 /* DailyStickyJournalApp.swift */,
+				213420F3768B424F9B0FB64D /* AppModel.swift */,
+				3A3BFCCC3C2642B8A4111897 /* AppWindows.swift */,
+				A922643A49CB48B787DA8761 /* DateKey.swift */,
+				8A879693425A41EDA84E6DAC /* TemplateRenderer.swift */,
+				5D8F0744DC694B1A8D39B7C9 /* Notifications.swift */,
+				908B735B770047FF95B86B7D /* SettingsStore.swift */,
+				0222504CC31644BEABC2E5A8 /* LaunchAtLoginService.swift */,
+				B4516A73129845D0AAC77C4F /* PersistenceController.swift */,
+				4F5EFC7E810345F2A8AAE39D /* NoteStore.swift */,
+				59807F88BE694459AD9744E4 /* RolloverScheduler.swift */,
+				4A61F123822A482FA7A06777 /* DailyNoteEditorViewModel.swift */,
+				42353F93B7D14A70B7D52E37 /* HighlightingTextView.swift */,
+				FF22C911B7A74453B8FF0B33 /* VisualEffectView.swift */,
+				04305FD850734C3C8F2BBFD2 /* StickyPanelView.swift */,
+				2A16CFF911F247AD93208C99 /* PanelController.swift */,
+				F998D17AE7454704B72B1AFA /* HistoryViewModel.swift */,
+				D6AA1FE1781246E8BFFFCED8 /* HistoryView.swift */,
+				6BAE2475BBAC423EB4CD67F9 /* NoteEditorViewModel.swift */,
+				97D3FB7F35F14492A6ABD9AE /* NoteEditorView.swift */,
+				EF69FDD4D65D4F91A40A9334 /* SettingsView.swift */,
+				04E8C3C40DBF4ADCAA3569E1 /* Note+CoreDataClass.swift */,
+				B17F265BDB0B47ABAB69C58A /* Note+CoreDataProperties.swift */,
+				3C286BC42092434DAF1E7A59 /* JournalModel.xcdatamodeld */,
+				4458B6405F2F4EF5A8666846 /* Assets.xcassets */,
+				38B9742067C049898AB76AE6 /* Info.plist */,
+			);
+			path = DailyStickyJournal;
+			sourceTree = "<group>";
+		};
+		8B060E44EBC2453389CDB77F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83CA801C0E4F4762BAE4E354 /* DailyStickyJournal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40226B83F7564B05A4DB1E98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45B2BAD459BE439E8DF172C4 /* DailyStickyJournal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60999F89863049ADBDA636A5 /* Build configuration list for PBXNativeTarget "DailyStickyJournal" */;
+			buildPhases = (
+				E4E33FFA9EBA400E87B77ACA /* Sources */,
+				6F5F46C2CB2940DEA3BCA7A5 /* Resources */,
+				E3C7B16F9157402681EF836A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DailyStickyJournal;
+			productName = DailyStickyJournal;
+			productReference = 83CA801C0E4F4762BAE4E354 /* DailyStickyJournal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D149CEEB95244474ABC9964D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 151EB7ACFDE444BAABA37656 /* Build configuration list for PBXProject "DailyStickyJournal" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FBC444255450480E8CD3D999;
+			productRefGroup = 8B060E44EBC2453389CDB77F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45B2BAD459BE439E8DF172C4 /* DailyStickyJournal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F5F46C2CB2940DEA3BCA7A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78A76C73C2484E6DA2780006 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4E33FFA9EBA400E87B77ACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2539B828DFAD4B019F69B202 /* DailyStickyJournalApp.swift in Sources */,
+				E287BF906BFC4FE99526227E /* AppModel.swift in Sources */,
+				9F676FC717F54DF7A6920DB2 /* AppWindows.swift in Sources */,
+				49EFC23920014A13846C65C4 /* DateKey.swift in Sources */,
+				57652D2EB35E4B1E922B7371 /* TemplateRenderer.swift in Sources */,
+				8D2E45E9F4F44C26AF38C1F6 /* Notifications.swift in Sources */,
+				F4B9559617DC4934AF21F6FE /* SettingsStore.swift in Sources */,
+				6967940866574B3EB6A79235 /* LaunchAtLoginService.swift in Sources */,
+				11C528AB306449D1B260BB74 /* PersistenceController.swift in Sources */,
+				D7D211893D0C4A34AAF64B6B /* NoteStore.swift in Sources */,
+				C25701E9DB5F42FC91085DA2 /* RolloverScheduler.swift in Sources */,
+				58EFB5499E3D43468B3B86DB /* DailyNoteEditorViewModel.swift in Sources */,
+				0BD0C4C91F4C4EC89D0AC8E0 /* StickyPanelView.swift in Sources */,
+				0B6130AAFCCF4AF284440F9A /* HighlightingTextView.swift in Sources */,
+				10E8D18A8A41424EA6FDD9D1 /* VisualEffectView.swift in Sources */,
+				9C25D746B5274B0AA0119CD7 /* PanelController.swift in Sources */,
+				29483B5ED3B6435E88AFC311 /* HistoryViewModel.swift in Sources */,
+				F270A5BE13CB4D91BC4CCBB1 /* HistoryView.swift in Sources */,
+				DB10CD352A74455BB4E9939F /* NoteEditorViewModel.swift in Sources */,
+				DF35DDFF87CC4751B49BD124 /* NoteEditorView.swift in Sources */,
+				C329F2993D1444F7853A12C4 /* SettingsView.swift in Sources */,
+				C207FA4379FE4F48BFCB8F0C /* Note+CoreDataClass.swift in Sources */,
+				40E28DFCF07E4501B18D7A29 /* Note+CoreDataProperties.swift in Sources */,
+				B8C7620E4A27477ABFE10C4B /* JournalModel.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7EC960BCE9E4480A92DF19FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		DEEE3E5B32B64A9EB551F082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		8ACD401DE3214C83A6751C14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = DailyStickyJournal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DailyStickyJournal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		F5454BB914EF4BF4A28125C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = DailyStickyJournal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DailyStickyJournal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		151EB7ACFDE444BAABA37656 /* Build configuration list for PBXProject "DailyStickyJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EC960BCE9E4480A92DF19FB /* Debug */,
+				DEEE3E5B32B64A9EB551F082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		60999F89863049ADBDA636A5 /* Build configuration list for PBXNativeTarget "DailyStickyJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACD401DE3214C83A6751C14 /* Debug */,
+				F5454BB914EF4BF4A28125C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D149CEEB95244474ABC9964D /* Project object */;
+}

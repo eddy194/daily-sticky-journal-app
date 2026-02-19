@@ -186,6 +186,7 @@ private struct PlaceholderTextEditor: NSViewRepresentable {
         textView.minSize = NSSize(width: 0, height: 0)
         textView.textContainer?.widthTracksTextView = true
         textView.textContainer?.containerSize = NSSize(width: 0, height: CGFloat.greatestFiniteMagnitude)
+        textView.textContainer?.lineFragmentPadding = 0
 
         textView.string = text
 
@@ -237,12 +238,18 @@ private struct PlaceholderTextEditor: NSViewRepresentable {
             guard string.isEmpty, !placeholderString.isEmpty else { return }
 
             let origin = textContainerOrigin
-            let linePadding = textContainer?.lineFragmentPadding ?? 0
             let fontToUse = font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize)
-            let point = CGPoint(
-                x: origin.x + textContainerInset.width + linePadding,
-                y: origin.y + textContainerInset.height + fontToUse.ascender
-            )
+            let padding = textContainer?.lineFragmentPadding ?? 0
+            let caretX: CGFloat? = {
+                guard let window else { return nil }
+                let screen = firstRect(forCharacterRange: NSRange(location: 0, length: 0), actualRange: nil)
+                guard !screen.isEmpty else { return nil }
+                let windowRect = window.convertFromScreen(screen)
+                let local = convert(windowRect, from: nil)
+                return local.minX
+            }()
+
+            let point = CGPoint(x: caretX ?? (origin.x + padding), y: origin.y)
             let attributes: [NSAttributedString.Key: Any] = [
                 .font: fontToUse,
                 .foregroundColor: placeholderColor

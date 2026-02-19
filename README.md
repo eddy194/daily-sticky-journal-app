@@ -35,6 +35,16 @@ To install the app into `/Applications` the “proper” way, create an Archive 
 
 Note: “Launch at login” works best once the app is installed in `/Applications` and signed.
 
+## Optional: Create a DMG installer
+If you want a simple drag-and-drop installer, you can package the exported `.app` into a `.dmg`:
+
+1. Export `DailyStickyJournal.app` (see **Distribute** above). The export can live anywhere, but by default this repo puts exports in `DailyStickyJournal/dist/Export-*/DailyStickyJournal.app`.
+2. Create the DMG:
+   - From repo root: `bash scripts/make_dmg.sh`
+   - Or explicitly: `bash scripts/make_dmg.sh /path/to/DailyStickyJournal.app /path/to/DailyStickyJournal.dmg`
+
+The DMG will contain the app plus an `Applications` shortcut for drag-and-drop install.
+
 ## Using the app
 - Menu bar → **Open Panel** shows the sticky panel (resizable).
 - Menu bar → **Open History** opens the daily history window.

@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 struct ChecklistNoteView: View {
@@ -39,19 +40,8 @@ struct ChecklistNoteView: View {
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundStyle(.secondary)
 
-                    let isNotesEmpty = viewModel.document.notes.isEmpty
-                    ZStack(alignment: .topLeading) {
-                        TextEditor(text: $viewModel.document.notes)
-                            .scrollContentBackground(.hidden)
-                            .font(.system(size: 14))
-
-                        Text("Write anything…")
-                            .foregroundStyle(.secondary.opacity(0.7))
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 10)
-                            .opacity(isNotesEmpty ? 1 : 0)
-                            .animation(.easeOut(duration: 0.12), value: isNotesEmpty)
-                            .allowsHitTesting(false)
+                    PlaceholderTextEditor(text: $viewModel.document.notes, placeholder: "Write anything…") {
+                        viewModel.scheduleAutosave()
                     }
                     .frame(minHeight: 140)
                     .padding(8)
@@ -157,5 +147,107 @@ private extension Color {
         let g = Double((hex >> 8) & 0xFF) / 255.0
         let b = Double(hex & 0xFF) / 255.0
         self.init(.sRGB, red: r, green: g, blue: b, opacity: 1.0)
+    }
+}
+
+private struct PlaceholderTextEditor: NSViewRepresentable {
+    @Binding var text: String
+    let placeholder: String
+    let onTextChange: () -> Void
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(text: $text, onTextChange: onTextChange)
+    }
+
+    func makeNSView(context: Context) -> NSScrollView {
+        let textView = PlaceholderNSTextView()
+        textView.delegate = context.coordinator
+        textView.isRichText = false
+        textView.importsGraphics = false
+        textView.allowsUndo = true
+        textView.isAutomaticQuoteSubstitutionEnabled = false
+        textView.isAutomaticLinkDetectionEnabled = false
+        textView.isAutomaticTextReplacementEnabled = true
+        textView.isAutomaticSpellingCorrectionEnabled = true
+        textView.isContinuousSpellCheckingEnabled = false
+        textView.smartInsertDeleteEnabled = true
+        textView.usesFindPanel = true
+        textView.drawsBackground = false
+        textView.textContainerInset = NSSize(width: 5, height: 6)
+        textView.insertionPointColor = .white
+        textView.font = .systemFont(ofSize: 14)
+        textView.placeholderString = placeholder
+        textView.placeholderColor = NSColor.secondaryLabelColor.withAlphaComponent(0.7)
+
+        textView.isHorizontallyResizable = false
+        textView.isVerticallyResizable = true
+        textView.autoresizingMask = [.width]
+        textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+        textView.minSize = NSSize(width: 0, height: 0)
+        textView.textContainer?.widthTracksTextView = true
+        textView.textContainer?.containerSize = NSSize(width: 0, height: CGFloat.greatestFiniteMagnitude)
+
+        textView.string = text
+
+        let scrollView = NSScrollView()
+        scrollView.hasVerticalScroller = true
+        scrollView.hasHorizontalScroller = false
+        scrollView.autohidesScrollers = true
+        scrollView.drawsBackground = false
+        scrollView.borderType = .noBorder
+        scrollView.documentView = textView
+
+        return scrollView
+    }
+
+    func updateNSView(_ nsView: NSScrollView, context: Context) {
+        guard let textView = nsView.documentView as? PlaceholderNSTextView else { return }
+        context.coordinator.onTextChange = onTextChange
+        if textView.string != text {
+            textView.string = text
+        }
+        textView.placeholderString = placeholder
+        textView.needsDisplay = true
+    }
+
+    final class Coordinator: NSObject, NSTextViewDelegate {
+        @Binding var text: String
+        var onTextChange: () -> Void
+
+        init(text: Binding<String>, onTextChange: @escaping () -> Void) {
+            _text = text
+            self.onTextChange = onTextChange
+        }
+
+        func textDidChange(_ notification: Notification) {
+            guard let tv = notification.object as? NSTextView else { return }
+            text = tv.string
+            onTextChange()
+            tv.needsDisplay = true
+        }
+    }
+
+    final class PlaceholderNSTextView: NSTextView {
+        var placeholderString: String = ""
+        var placeholderColor: NSColor = .secondaryLabelColor
+
+        override func draw(_ dirtyRect: NSRect) {
+            super.draw(dirtyRect)
+
+            guard string.isEmpty, !placeholderString.isEmpty else { return }
+
+            let origin = textContainerOrigin
+            let linePadding = textContainer?.lineFragmentPadding ?? 0
+            let fontToUse = font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize)
+            let point = CGPoint(
+                x: origin.x + textContainerInset.width + linePadding,
+                y: origin.y + textContainerInset.height + fontToUse.ascender
+            )
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: fontToUse,
+                .foregroundColor: placeholderColor
+            ]
+            (placeholderString as NSString).draw(at: point, withAttributes: attributes)
+        }
     }
 }
